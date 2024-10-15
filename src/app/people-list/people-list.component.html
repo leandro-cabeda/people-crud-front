@@ -1,0 +1,32 @@
+<main class="main">
+  <div>
+    <h1>Lista de Pessoas</h1>
+    <button routerLink="/create">Adicionar Nova Pessoa</button>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Telefone</th>
+          <th>Tipo da Pessoa</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let people of peoples">
+          <td>{{ people.id }}</td>
+          <td>{{ people.nome }}</td>
+          <td>{{ people.email }}</td>
+          <td>{{ people.telefone }}</td>
+          <td>{{ people.tipoPessoa.tipo }}</td>
+          <td>
+            <button [routerLink]="['/edit', people.id]">Editar</button>
+            <button (click)="onDeletePeople(people.id!)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
